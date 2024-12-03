@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日语 KANA 输入法键位练习</title>
+    <link rel="stylesheet" href="./KanaInputPractice/index.css">
+</head>
+
+<body>
+    <div id="settings">
+        <div class="one-setting">
+            <input type="radio" name="mode" id="kanaMode">
+            <label for="kanaMode">假名模式</label>
+        </div>
+        <div class="one-setting">
+            <input type="radio" name="mode" id="wordMode">
+            <label for="wordMode">单词模式</label>
+        </div>
+    </div>
+
+    <!-- #tag 显示假名的部分 -->
+    <div id="kana">
+        <!-- 显示日文假名 -->
+        <div id="rawjp">
+            <!-- 这里显示已经输入过了的、正确的日文 -->
+            <span id="inputted"></span>
+            <span id="waitted">这里显示日文假名</span>
+        </div>
+        <div id="elseinfo">
+            <!-- 显示日文（包含汉字） -->
+            <p id="spell">这是显示日文的完整形式</p>
+            <!-- 显示释义 -->
+            <p id="trans">这里显示中文释义</p>
+        </div>
+    </div>
+
+    <!-- #tag 键盘部分 -->
+    <div id="keyboard">
+        <div id="nums-row" class="keyboard-row"></div>
+        <div id="qwe-row" class="keyboard-row"></div>
+        <div id="asd-row" class="keyboard-row"></div>
+        <div id="zxc-row" class="keyboard-row"></div>
+        <div id="else-row" class="keyboard-row"></div>
+    </div>
+
+</body>
+<script src="./KanaInputPractice/init.js"></script>
+<script src="./KanaInputPractice/index.js"></script>
+<script async defer src="./KanaInputPractice/words.js"></script>
+
+</html>

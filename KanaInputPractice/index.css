@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #tag 定义样式变量 */
+:root {
+    /* 网站的背景颜色 */
+    --page-bg-color: #444;
+    /* 网站普通文本的颜色 */
+    --normol-text-color: #aaa;
+
+    /* #tag 键盘相关的样式 */
+    /* 键盘的背景颜色 */
+    --keyboard-bg-color: #333;
+    /* 键盘中显示文本 */
+    --key-text-color: #ccc;
+    /* 键盘中显示平假名 - 深绯 */
+    --key-hira-color: #c9171e;
+    /* 指示按键时用 */
+    --hint-bg-color: #21a81330;
+
+    /* #tag 按下键盘相关的样式 */
+    /* 按下 key 时显示的背景颜色 */
+    --keyup-bg-color: #8a4de430;
+
+}
+
+body {
+    background-color: var(--page-bg-color);
+    color: var(--normol-text-color);
+}
+
+
+
+/* #region 配置区域*/
+#settings {
+    height: 50px;
+    margin: 30px;
+    border: 1px solid #888;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings .one-setting:hover {
+    color: orange;
+}
+
+#settings input[type=radio] {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.one-setting {
+    margin: 0 30px;
+}
+
+/* #endregion 配置区域*/
+
+
+/* #tag 假名显示区域 */
+
+#kana {
+    margin: 30px;
+    text-align: center;
+}
+
+#rawjp {
+    height: 150px;
+    line-height: 150px;
+    font-size: 3em;
+    font-weight: bolder;
+    border: 1px solid #888;
+    letter-spacing: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+#inputted {
+    color: var(--key-hira-color);
+}
+
+#kana #elseinfo p {
+    padding: 0 40px;
+    height: 75px;
+    font-size: 1.3em;
+    line-height: 75px;
+    text-align: center;
+    border-bottom: 1px solid #888;
+    overflow: hidden;
+}
+
+#keyboard {
+    width: fit-content;
+    border-radius: 15px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--keyboard-bg-color);
+}
+
+/* #region 键盘的行 */
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* #endregion 键盘的行 */
+
+
+/* #region 键盘的键 */
+
+/* 使用定位布局，让四个字符位于上下左右居中方向 */
+.keyboard-key {
+    height: 100px;
+    width: 100px;
+    border: 1.5px solid #888;
+    border-right: none;
+    font-size: 25px;
+    position: relative;
+}
+
+/* 键盘行的最后一个键需要设置右边框 */
+.keyboard-key:last-child {
+    border-right: 1.5px solid #888;
+}
+
+/** 键盘的 zxc 行、asd 行、qwe 行的键不设置上边框 */
+#zxc-row .keyboard-key,
+#asd-row .keyboard-key,
+#qwe-row .keyboard-key {
+    border-top: none;
+}
+
+/* #tag 键盘中文字包裹者 */
+.keyboard-key span {
+    position: absolute;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    font-family: 'Yu Gothic';
+    margin: 12px;
+}
+
+/* #tag 片假名 右下角 */
+.keyboard-key .kata {
+    right: 0;
+    bottom: 0;
+}
+
+/* #tag 键盘字符 左上角 */
+.keyboard-key .text {
+    top: 0;
+    left: 0;
+    font-weight: bold;
+    color: var(--key-text-color);
+}
+
+/* #tag 小写的假名 右上角 */
+.keyboard-key .littleHira {
+    top: 0;
+    right: 0;
+}
+
+/* #tag 平假名 左下角 */
+.keyboard-key .hira {
+    left: 0;
+    bottom: 0;
+    color: var(--key-hira-color);
+}
+
+/* #tag 给F、H键一些凸显 */
+#key-KeyF::after,
+#key-KeyH::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+
+    /* 让它在 key 居中显示 */
+    position: absolute;
+    left: calc(50% - 5px);
+    top: 50%;
+
+    background-color: var(--key-text-color);
+}
+
+/* #tag 特殊按键的处理 */
+
+.normal-key {
+    width: 180px;
+    text-align: center;
+    line-height: 100px;
+    /* 因为这些特殊按键都位于键盘边缘，所以将 flex 多余的空间都占据 */
+    flex-grow: 1;
+    letter-spacing: 2px;
+}
+
+.key-shift-down {
+    background-color: var(--keyup-bg-color);
+}
+
+/* #endregion 键盘的键 */
+
+
+
+
+/* #region 按键时触发的特效 */
+
+#keyboard .keyup {
+    background-color: var(--keyup-bg-color);
+}
+
+/* #tag 按下shift键 */
+.key-no-littleHira * {
+    filter: opacity(.2);
+}
+
+/* #tag 需要输入的键 */
+.hint-key {
+    background-color: var(--hint-bg-color);
+}
+
+
+/* #endregion 按键时触发的特效 */
