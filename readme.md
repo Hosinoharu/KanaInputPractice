@@ -9,7 +9,7 @@
 
 
 
-在线使用可以访问：
+在线使用可以访问：[日语 KANA 输入法键位练习](https://hosinoharu.github.io/KanaInputPractice/)
 
 
 
